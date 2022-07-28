@@ -13,7 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('perjalanan', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('nik');
+            $table->date('tanggal');
+            $table->time('waktu');
+            $table->string('lokasi');
+            $table->decimal('suhu');
+            $table->timestamps();
+        });
     }
 
     /**
