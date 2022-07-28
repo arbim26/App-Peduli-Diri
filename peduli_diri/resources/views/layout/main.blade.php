@@ -38,7 +38,7 @@
                         <a class="nav-link active text-primary fs-30" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-primary fs-30" aria-current="page" href="#">Catatan
+                        <a class="nav-link active text-primary fs-30" aria-current="page" href="/perjalanan">Catatan
                             Perjalanan</a>
                     </li>
                     <li class="nav-item">
