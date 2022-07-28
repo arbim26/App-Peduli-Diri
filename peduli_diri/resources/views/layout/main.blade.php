@@ -35,10 +35,10 @@
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-primary fs-30" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-primary fs-30" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-primary fs-30" aria-current="page" href="#">Catatan
+                        <a class="nav-link active text-primary fs-30" aria-current="page" href="/perjalanan">Catatan
                             Perjalanan</a>
                     </li>
                     <li class="nav-item">
