@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
+    <title>Peduli Diri</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../Assets/vendors/feather/feather.css">
     <link rel="stylesheet" href="../Assets/vendors/ti-icons/css/themify-icons.css">
@@ -42,7 +42,7 @@
                             Perjalanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-primary fs-30" aria-current="page" href="#">Isi Daftar</a>
+                        <a class="nav-link active text-primary fs-30" aria-current="page" href="/tambah">Isi Daftar</a>
                     </li>
 
                 </ul>

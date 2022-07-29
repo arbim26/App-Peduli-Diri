@@ -4,8 +4,8 @@
     <div class=" grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h3 class="text-center">Data Guru</h3>
-                    <a href="#" type="button" class="btn btn-primary btn-md mt-3" >
+                  <h3 class="text-center">Data Perjalanan</h3>
+                    <a href="/tambah" type="button" class="btn btn-primary btn-md mt-3" >
                         Isi Daftar
                     </a>
 

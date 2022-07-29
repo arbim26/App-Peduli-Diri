@@ -22,4 +22,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/perjalanan',[PerjalananController::class,'perjalanan']);
+Route::get('/perjalanan',[PerjalananController::class,'perjalanan'])->name('perjalanan');
+
+Route::get('/tambah', function () {
+    return view('tambah.tambah');
+});
+
+Route::post('/insert', [PerjalananController::class, 'create']);

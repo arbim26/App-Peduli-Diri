@@ -13,4 +13,11 @@ class PerjalananController extends Controller
         $data = perjalanan::all();
         return view('perjalanan.perjalanan', compact('data'));
     }
+
+    public function create(Request $request){
+        Admin::create($request->all());
+
+        return redirect()->route('perjalanan');
+    }
+    
 }
