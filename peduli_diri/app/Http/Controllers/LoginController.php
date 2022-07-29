@@ -28,12 +28,13 @@ class LoginController extends Controller
 
     public function registernew(Request $request)
     {
-        // $this->validate($request, [
-        //   'name'=> 'required',
-        //   'email'=> 'required',
-        //   'password'=> 'required',
-        // ]);
-        // dd($request);
+        $this->validate($request, [
+          'name'=> 'required',
+          'nik'=> 'required',
+          'email'=> 'required',
+          'password'=> 'required',
+        ]);
+        dd($request);
         User::create([
             'name' =>$request->name,
             'nik' =>$request->nik,
