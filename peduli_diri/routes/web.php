@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerjalananController; 
 
 /*
@@ -15,11 +16,19 @@ use App\Http\Controllers\PerjalananController;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/perjalanan',[PerjalananController::class,'perjalanan']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/postlogin',[LoginController::class, 'postlogin']);
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/registernew',[LoginController::class, 'registernew']);
+Route::get('/logout',[LoginController::class, 'logout']);
+
+Route::middleware(['auth:user'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('index');
+    });
+    Route::get('/perjalanan',[PerjalananController::class,'perjalanan']);
+});
+

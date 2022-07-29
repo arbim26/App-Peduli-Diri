@@ -31,31 +31,31 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../Assets/images/logo.svg" alt="logo">
+                <img src="../assets/images/logo.svg" alt="logo">
               </div>
-              <h4>Ayo catat perjalanan mu!</h4>
-              <h6 class="font-weight-light">Masuk untuk lanjut</h6>
-
-              <form action="/postlogin" method="POST">
-              @csrf
-                <div class="input-group mb-3">
-                  <input type="text" name="nik" class="form-control" placeholder="Nik">
-                  <div class="input-group-append">
-                  </div>
+              <h4>Belum Punya Akun?</h4>
+              <h6 class="font-weight-light">Dafatar dengan mudah dan ikut langkahnya</h6>
+              <form class="pt-3" action="/registernew" method="POST">
+                @csrf
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Nama">
                 </div>
-                <div class="input-group mb-3">
-                  <input type="password" name="password" class="form-control" placeholder="Password">
-                  <div class="input-group-append">
-                  </div>
+                <div class="form-group">
+                  <input type="NIK" name="nik" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="NIK">
+                </div>
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="col-4 m-auto">
-                  <button type="submit" name="submit" class="btn btn-primary ">Masuk</button>
+                  <button type="submit" name="submit" class="btn btn-primary ">Daftar</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Belum Punya Akun? <a href="/register" class="text-primary">Buat</a>
+                  Already have an account? <a href="/login" class="text-primary">Login</a>
                 </div>
               </form>
-
             </div>
           </div>
         </div>
