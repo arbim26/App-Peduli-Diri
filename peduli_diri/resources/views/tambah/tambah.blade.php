@@ -7,7 +7,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Catatan Perjalanan</h4>
                   <p class="card-description">
-                    Catatan Perjalanan
+                    Tambah Data Perjalanan
                   </p>
                   <form class="forms-sample" action="/insert" method="POST">
                     @csrf
