@@ -5,9 +5,9 @@
     <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic form elements</h4>
+                  <h4 class="card-title">Catatan Perjalanan</h4>
                   <p class="card-description">
-                    Basic form elements
+                    Catatan Perjalanan
                   </p>
                   <form class="forms-sample" action="/insert" method="POST">
                     @csrf
@@ -28,11 +28,11 @@
                       <input type="text" name="lokasi" class="form-control" id="lokasi" placeholder="Lokasi">
                     </div>
                     <div class="form-group">
-                      <label for="exampleTextarea1">Textarea</label>
-                      <input type="number" class="form-control" placeholder="00.0" required name="suhu" step="any">
+                      <label for="exampleTextarea1"></label>
+                      <input type="decimal" class="form-control" placeholder="00.0" required name="suhu" step="any">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="/perjalanan" class="btn btn-light">Cancel</a>
                   </form>
                 </div>
               </div>

@@ -8,7 +8,6 @@
                     <a href="/tambah" type="button" class="btn btn-primary btn-md mt-3" >
                         Isi Daftar
                     </a>
-
                   <div class="table-responsive mt-3">
                     <table class="table">
                       <thead>
@@ -25,7 +24,7 @@
                             <td>{{$row->tanggal}}</td>
                             <td>{{$row->waktu}}</td>
                             <td>{{$row->lokasi}}</td>
-                            <td>{{$row->suhu}}</td>v>
+                            <td>{{$row->suhu}}°C</td>
                             </td>
                         </tr>
                       @endforeach

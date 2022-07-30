@@ -15,8 +15,7 @@ class PerjalananController extends Controller
     }
 
     public function create(Request $request){
-        Admin::create($request->all());
-
+        Perjalanan::create($request->all());
         return redirect()->route('perjalanan');
     }
     
