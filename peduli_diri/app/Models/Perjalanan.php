@@ -10,5 +10,5 @@ class Perjalanan extends Model
     use HasFactory;
 
     protected $table = 'perjalanan';
-    protected $fillable = ['tanggal','waktu','lokasi','suhu'];
+    protected $fillable = ['nik','tanggal','waktu','lokasi','suhu'];
 }
