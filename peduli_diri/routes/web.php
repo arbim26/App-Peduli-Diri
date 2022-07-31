@@ -25,10 +25,10 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registernew',[LoginController::class, 'registernew']);
 Route::get('/logout',[LoginController::class, 'logout']);
 
-Route::middleware(['auth:user'])->group(function () {
+// Route::middleware(['auth:user'])->group(function () {
     Route::get('/dashboard', function () {
         return view('index');
     });
-    Route::get('/perjalanan',[PerjalananController::class,'perjalanan']);
-});
+    
+// });
 
