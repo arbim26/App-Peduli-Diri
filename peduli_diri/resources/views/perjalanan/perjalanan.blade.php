@@ -5,9 +5,6 @@
               <div class="card">
                 <div class="card-body">
                   <h3 class="text-center">Data Perjalanan</h3>
-                    <a href="/tambah" type="button" class="btn btn-primary btn-md mt-3" >
-                        Isi Daftar
-                    </a>
                   <div class="table-responsive mt-3">
                     <table class="table">
                       <thead>

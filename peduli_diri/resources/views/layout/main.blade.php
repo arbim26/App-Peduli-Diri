@@ -57,6 +57,7 @@
                     <h4 class="mt-3 text-primary">Nama : Vestia Zeta</h>
                         <h6 class="mt-3 text-primary">Nik : 0082199023090</h6>
                 </div>
+                <a href="/logout" class="btn btn-danger mt-5">Logout</a>
             </nav>
 
             <div class="main-panel">
