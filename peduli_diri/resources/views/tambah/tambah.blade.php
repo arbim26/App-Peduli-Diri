@@ -28,8 +28,8 @@
                       <input type="text" name="lokasi" class="form-control" id="lokasi" placeholder="Lokasi">
                     </div>
                     <div class="form-group">
-                      <label for="exampleTextarea1"></label>
-                      <input type="decimal" class="form-control" placeholder="00.0" required name="suhu" step="any">
+                      <label for="exampleTextarea1">Suhu</label>
+                      <input type="decimal" class="form-control" name="suhu" placeholder="00.0" required name="suhu" step="any">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <a href="/perjalanan" class="btn btn-light">Cancel</a>

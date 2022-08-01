@@ -14,9 +14,12 @@ class PerjalananController extends Controller
         return view('perjalanan.perjalanan', compact('data'));
     }
 
+    
+
     public function create(Request $request){
+        // dd($request);
         Perjalanan::create($request->all());
-        return redirect()->route('perjalanan');
+        return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
     }
     
 }

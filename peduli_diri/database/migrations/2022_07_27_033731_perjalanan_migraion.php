@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('waktu');
             $table->string('lokasi');
-            $table->decimal('suhu');
+            $table->string('suhu');
             $table->timestamps();
         });
     }
