@@ -15,9 +15,11 @@ use App\Http\Controllers\PerjalananController;
 |
 */
 
-Route::get('/', function () {
+Route::get('', function () {
     return view('login');
 });
+
+
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/postlogin',[LoginController::class, 'postlogin']);
@@ -25,8 +27,8 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registernew',[LoginController::class, 'registernew']);
 Route::get('/logout',[LoginController::class, 'logout']);
 
-Route::middleware(['auth:user'])->group(function () {
-    Route::get('/dashboard', function () {
+// Route::middleware(['auth:user'])->group(function () {
+    Route::get('/', function () {
         return view('index');
     });
     Route::get('/perjalanan',[PerjalananController::class,'perjalanan'])->name('perjalanan');
@@ -34,7 +36,7 @@ Route::middleware(['auth:user'])->group(function () {
     
 Route::get('/tambah', function () {
     return view('tambah.tambah');
-});
+// });
 Route::post('/insert', [PerjalananController::class, 'create']);
 
 
