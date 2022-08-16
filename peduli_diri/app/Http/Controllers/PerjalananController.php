@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Perjalanan;
 use Illuminate\Routing\Controller;
+use App\Http\Resources\PostResource;
 
 class PerjalananController extends Controller
 {
