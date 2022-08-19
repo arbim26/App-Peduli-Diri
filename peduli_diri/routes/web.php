@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\PerjalananController; 
 
 /*
@@ -20,8 +19,6 @@ Route::get('', function () {
     return view('login');
 });
 
-Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
-
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -35,11 +32,12 @@ Route::get('/logout',[LoginController::class, 'logout']);
         return view('index');
     });
     Route::get('/perjalanan',[PerjalananController::class,'perjalanan'])->name('perjalanan');
-    Route::get('/tambah',[PerjalananController::class,'tambah'])->name('tambah');
 
     
-
+Route::get('/tambah', function () {
+    return view('tambah.tambah');
 // });
 Route::post('/insert', [PerjalananController::class, 'create']);
 
 
+});

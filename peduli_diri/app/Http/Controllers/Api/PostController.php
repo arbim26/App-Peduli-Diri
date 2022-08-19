@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Perjalanan;
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {    
@@ -29,13 +28,9 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $post = Auth::user()->id;
-        dd($post);
-        
-        // dd($request);
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'user_id'     => 'required',
+            'nik'     => 'required',
             'tanggal'     => 'required',
             'waktu'   => 'required',
             'lokasi'   => 'required',
@@ -48,9 +43,8 @@ class PostController extends Controller
         }
 
         //create post
-        $post = Perjalanan::create
-        ([
-            'user_id'     => $post,
+        $post = Perjalanan::create([
+            'nik'     => $request->nik,
             'tanggal'   => $request->tanggal,
             'waktu'   => $request->waktu,
             'lokasi'   => $request->lokasi,
@@ -58,7 +52,58 @@ class PostController extends Controller
         ]);
 
         //return response
-        // return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
+        return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
         return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
+    }
+
+    public function show(Post $post)
+    {
+        //return single post as a resource
+        return new PostResource(true, 'Data Post Ditemukan!', $post);
+    }
+
+    public function update(Request $request, Perjalanan $perjalanan)
+    {
+        //define validation rules
+        $validator = Validator::make($request->all(), [
+            'nik'     => 'required',
+            'tanggal'     => 'required',
+            'waktu'   => 'required',
+            'lokasi'   => 'required',
+            'suhu'   => 'required',
+        ]);
+
+        //check if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        //check if image is not empty
+        if ($request->hasFile('image')) {
+
+            //update post with new image
+            $post->update([
+                'nik'     => $request->nik,
+                'tanggal'   => $request->tanggal,
+                'waktu'   => $request->waktu,
+                'lokasi'   => $request->lokasi,
+                'suhu'   => $request->suhu,
+            ]);
+
+        } 
+
+        //return response
+        return new PostResource(true, 'Mantap!', $perjalanan);
+
+    }
+    
+    public function destroy( Perjalanan $perjalanan)
+    {
+    
+        //delete post
+        $perjalanan->delete();
+    
+        //return response
+        return new PostResource(true, 'Data Post Berhasil Dihapus!', null);
     }
 }
