@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Perjalanan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
@@ -27,9 +29,13 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $post = Auth::user()->id;
+        dd($post);
+        
+        // dd($request);
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'nik'     => 'required',
+            'user_id'     => 'required',
             'tanggal'     => 'required',
             'waktu'   => 'required',
             'lokasi'   => 'required',
@@ -42,8 +48,9 @@ class PostController extends Controller
         }
 
         //create post
-        $post = Perjalanan::create([
-            'nik'     => $request->nik,
+        $post = Perjalanan::create
+        ([
+            'user_id'     => $post,
             'tanggal'   => $request->tanggal,
             'waktu'   => $request->waktu,
             'lokasi'   => $request->lokasi,
@@ -51,7 +58,7 @@ class PostController extends Controller
         ]);
 
         //return response
-        return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
+        // return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
         return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
     }
 }

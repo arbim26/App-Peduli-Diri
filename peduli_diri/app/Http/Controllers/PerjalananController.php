@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Perjalanan;
+use App\Models\User;
 use Illuminate\Routing\Controller;
 use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +15,16 @@ class PerjalananController extends Controller
     {
         $data = perjalanan::all();
         return view('perjalanan.perjalanan', compact('data'));
+    }
+
+
+    public function tambah()
+    {   
+        $data = perjalanan::all();
+        $user = user::all();
+        return view('tambah.tambah',[
+            'user' => $user,
+        ]);
     }
 
     public function index()

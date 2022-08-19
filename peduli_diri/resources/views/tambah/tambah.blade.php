@@ -9,11 +9,11 @@
                   <p class="card-description">
                     Tambah Data Perjalanan
                   </p>
-                  <form class="forms-sample" action="/insert" method="POST">
+                  <form class="forms-sample" action="/posts" method="POST">
                     @csrf
-                    <div class="form-group">
-                      <label for="nik">Nik</label>
-                      <input type="number" name="nik" class="form-control" id="nik" placeholder="Nik">
+                    <div class="mb-3">
+                      <label for="tai" class="form-label">id user</label>
+                      <input type="text" id="tai" readonly value="{{ auth()->user()->id }}">
                     </div>
                     <div class="form-group">
                       <label for="tanggal">Tanggal</label>

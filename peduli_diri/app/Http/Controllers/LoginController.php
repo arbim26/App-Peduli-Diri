@@ -21,7 +21,7 @@ class LoginController extends Controller
     public function postlogin(Request $request)
     {
         if(Auth::guard('user')->attempt((['nik' => $request->nik, 'password' => $request->password]))) {
-          return redirect('/dashboard');
+          return redirect('/');
         }
         return redirect('/login');
     }
@@ -34,7 +34,7 @@ class LoginController extends Controller
           'email'=> 'required',
           'password'=> 'required',
         ]);
-        dd($request);
+        
         User::create([
             'name' =>$request->name,
             'nik' =>$request->nik,
@@ -51,6 +51,6 @@ class LoginController extends Controller
       if(Auth::guard('user')->check()){
         Auth::guard('user')->logout();
       }
-      return redirect('/');
+      return redirect('/login');
     }
 }
