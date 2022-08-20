@@ -30,7 +30,7 @@ class PostController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'nik'     => 'required',
+            'user_id'     => 'required',
             'tanggal'     => 'required',
             'waktu'   => 'required',
             'lokasi'   => 'required',
@@ -44,7 +44,7 @@ class PostController extends Controller
 
         //create post
         $post = Perjalanan::create([
-            'nik'     => $request->nik,
+            'user_id'     => $request->user_id,
             'tanggal'   => $request->tanggal,
             'waktu'   => $request->waktu,
             'lokasi'   => $request->lokasi,
@@ -53,7 +53,7 @@ class PostController extends Controller
 
         //return response
         return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
-        return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
+        // return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
     }
 
     public function show(Post $post)
@@ -66,11 +66,11 @@ class PostController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'nik'     => 'required',
+            'user_id'     => 'required',
             'tanggal'     => 'required',
             'waktu'   => 'required',
             'lokasi'   => 'required',
-            'suhu'   => 'required',
+            'suhu'   => 'required', 
         ]);
 
         //check if validation fails
@@ -83,7 +83,7 @@ class PostController extends Controller
 
             //update post with new image
             $post->update([
-                'nik'     => $request->nik,
+                'user_id'     => $request->user_id,
                 'tanggal'   => $request->tanggal,
                 'waktu'   => $request->waktu,
                 'lokasi'   => $request->lokasi,
