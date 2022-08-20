@@ -21,11 +21,11 @@ Route::get('', function () {
 
 
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/postlogin',[LoginController::class, 'postlogin']);
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/registernew',[LoginController::class, 'registernew']);
-Route::get('/logout',[LoginController::class, 'logout']);
+// Route::get('/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/postlogin',[LoginController::class, 'postlogin']);
+// Route::get('/register', [LoginController::class, 'register'])->name('register');
+// Route::post('/registernew',[LoginController::class, 'registernew']);
+// Route::get('/logout',[LoginController::class, 'logout']);
 
 // Route::middleware(['auth:user'])->group(function () {
     Route::get('/', function () {
