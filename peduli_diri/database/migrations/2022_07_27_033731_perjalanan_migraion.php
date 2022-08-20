@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('perjalanan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->bigInteger('nik');
             $table->date('tanggal');
             $table->time('waktu');
             $table->string('lokasi');
