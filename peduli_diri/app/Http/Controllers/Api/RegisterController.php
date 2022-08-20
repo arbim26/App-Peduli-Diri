@@ -15,6 +15,16 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function index()
+    {
+        //get posts
+        $posts = User::latest()->paginate(5);
+
+        //return collection of posts as a resource
+        return new PostResource(true, 'List Data Posts', $posts);
+    }
+
     public function __invoke(Request $request)
     {
          //set validation
