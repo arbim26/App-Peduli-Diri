@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Post;
 use App\Models\Perjalanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
         //get posts
-        $posts = Perjalanan::latest()->paginate(5);
+        $posts = Perjalanan::latest()->get();
 
         //return collection of posts as a resource
         return new PostResource(true, 'List Data Posts', $posts);
@@ -56,14 +55,23 @@ class PostController extends Controller
         // return redirect(route('perjalanan'))->with('message','Sending infomation successfully');
     }
 
-    public function show(Post $post)
+    public function show($id)
     {
-        //return single post as a resource
-        return new PostResource(true, 'Data Post Ditemukan!', $post);
+        //find post by ID
+        $post = Perjalanan::findOrfail($id);
+
+        //make response JSON
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail Data Post',
+            'data'    => $post 
+        ], 200);
+
     }
 
-    public function update(Request $request, Perjalanan $perjalanan)
-    {
+
+    public function update(request $request, perjalanan $post){
+
         //define validation rules
         $validator = Validator::make($request->all(), [
             'user_id'     => 'required',
@@ -74,14 +82,11 @@ class PostController extends Controller
         ]);
 
         //check if validation fails
-        if ($validator->fails()) {
+        if ($validator->fails()){
             return response()->json($validator->errors(), 422);
         }
 
-        //check if image is not empty
-        if ($request->hasFile('image')) {
-
-            //update post with new image
+            //update post with new catatan
             $post->update([
                 'user_id'     => $request->user_id,
                 'tanggal'   => $request->tanggal,
@@ -89,21 +94,31 @@ class PostController extends Controller
                 'lokasi'   => $request->lokasi,
                 'suhu'   => $request->suhu,
             ]);
-
-        } 
-
-        //return response
-        return new PostResource(true, 'Mantap!', $perjalanan);
-
-    }
-    
-    public function destroy( Perjalanan $perjalanan)
+        
+            //return response
+       return new PostResource(true, 'Data catatan Berhasil Diubah!', $post);
+}
+    public function destroy($id)
     {
-    
-        //delete post
-        $perjalanan->delete();
-    
-        //return response
-        return new PostResource(true, 'Data Post Berhasil Dihapus!', null);
+        //find post by ID
+        $post = Perjalanan::findOrfail($id);
+
+        if($post) {
+
+            //delete post
+            $post->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Post Deleted',
+            ], 200);
+
+        }
+
+        //data post not found
+        return response()->json([
+            'success' => false,
+            'message' => 'Post Not Found',
+        ], 404);
     }
 }
